@@ -72,7 +72,7 @@ def check_versions() -> None:
 
 
 def check_evals() -> None:
-    cases = sorted(p for p in (ROOT / "evals").iterdir() if p.is_dir())
+    cases = sorted(p for p in (ROOT / "evals").iterdir() if p.is_dir() and p.name not in {"results", "mocks"})
     if not cases:
         fail("no eval cases under evals/")
     for case in cases:

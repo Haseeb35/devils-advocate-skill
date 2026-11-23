@@ -1,1 +1,8 @@
 blank_issues_enabled: false
+contact_links:
+  - name: Share an output
+    url: https://github.com/Haseeb35/devils-advocate-skill/discussions/categories/show-and-tell
+    about: Got a great (or terrible) critique? Post it in Show and tell.
+  - name: Ask a question
+    url: https://github.com/Haseeb35/devils-advocate-skill/discussions/categories/q-a
+    about: Questions about installing or using the skill.

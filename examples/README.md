@@ -5,6 +5,8 @@
 | [REST to GraphQL migration](standard-rest-to-graphql.md) | Standard | Engineering | Real run |
 | [Postgres vs MongoDB](compare-postgres-vs-mongodb.md) | Compare | Engineering | Real run |
 | [Annual vs monthly plan](quick-annual-plan.md) | Quick | Purchasing | Real run |
+| [Quitting a job to build a dental SaaS](deep-dental-saas.md) | Deep | Career / startup | Real run |
+| [Second coffee shop: with vs without the skill](with-vs-without-coffee-shop.md) | Standard | Small business | Real run |
 | [Switching to subscription pricing](business-subscription-pricing.md) | Standard | Business | Illustrative |
 | [Quitting a job to freelance](personal-quitting-to-freelance.md) | Standard | Personal | Illustrative |
 

@@ -113,6 +113,22 @@ Every failure mode comes with a **likelihood**, an **early warning sign** and a 
 
 More in [`examples/`](examples), including a full [Compare mode run](examples/compare-postgres-vs-mongodb.md).
 
+## Why not just ask Claude?
+
+You can — and plain Claude gives thoughtful advice. Here is the same decision asked both ways, same model, unedited ([full transcripts](examples/with-vs-without-coffee-shop.md)):
+
+> *"I'm thinking of opening a second location of my coffee shop across town. The first one has been profitable for 2 years, I'd take a bank loan for most of it."*
+
+| | Plain Claude | With Devil's Advocate |
+|---|---|---|
+| **Shape** | A balanced essay: pros, common pitfalls, numbers to run | A fixed structure you can scan in a minute |
+| **Risks** | Four pitfalls, unranked | Three failure modes, each with a likelihood, a warning sign and a prevention step |
+| **Specificity** | "New shops often lose money for 6 to 18 months while they build regulars." | "Warning sign: sales are under about 60% of plan by month 4" |
+| **Bottom line** | "It can be a good move if…" | **⚠️ Go, with changes** — and exactly which three conditions to meet before signing |
+| **Ends with** | An offer to build a spreadsheet | The one question to answer before deciding |
+
+The difference is not intelligence, it is commitment. The skill makes Claude argue one side hard, rank what matters, attach a tripwire to every risk and give a verdict you can act on — instead of a careful overview you still have to turn into a decision yourself.
+
 ## Design principles
 
 The skill is short, and most of it explains *why* rather than dictating rules.
@@ -124,6 +140,15 @@ The skill is short, and most of it explains *why* rather than dictating rules.
 - **Tone follows stakes.** Technical decisions get blunt answers. Personal ones get the same honesty, delivered with care.
 
 ## Testing
+
+Same prompts, same model, with and without the skill — 2 runs per case, graded by an independent judge:
+
+| | Checks passed |
+|---|---|
+| **With Devil's Advocate** | **39 / 40 (98%)** |
+| Plain Claude | 18 / 40 (45%) |
+
+Part of that gap is format (plain Claude was never asked for a pre-mortem), but the judgement checks tell the same story: without the skill, Claude never gave a sound plan a clear **Go**. Per-case breakdown and caveats in [`evals/RESULTS.md`](evals/RESULTS.md).
 
 The [`evals/`](evals) folder holds six test cases covering every mode, plus two behaviours that matter most: giving a fair **Go** to a sound plan, and asking questions when a plan is too vague to critique.
 
@@ -149,7 +174,7 @@ claude plugin validate .     # official plugin validation, also run in CI
 
 ## Contributing
 
-Issues and pull requests are welcome. The most valuable contribution is a [report of a weak critique](https://github.com/Haseeb35/devils-advocate-skill/issues/new?template=weak-critique.yml) — a real decision where the skill was generic, unfair or wrong. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Issues and pull requests are welcome. The most valuable contribution is a [report of a weak critique](https://github.com/Haseeb35/devils-advocate-skill/issues/new?template=weak-critique.yml) — a real decision where the skill was generic, unfair or wrong. Used it on a real decision? Share the output in [Show and tell](https://github.com/Haseeb35/devils-advocate-skill/discussions/categories/show-and-tell). See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
