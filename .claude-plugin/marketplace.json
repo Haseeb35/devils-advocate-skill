@@ -12,7 +12,7 @@
       "name": "devils-advocate",
       "source": "./",
       "description": "Stress-test any plan before you commit to it: the case against, the ways it could fail, the case for, and a fair verdict.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "productivity"
     }
   ]

@@ -63,6 +63,8 @@ cp -r devils-advocate-skill/skills/devils-advocate ~/.claude/skills/
 
 Download **`devils-advocate.zip`** from the [latest release](https://github.com/Haseeb35/devils-advocate-skill/releases/latest) and upload it under **Settings → Capabilities → Skills**.
 
+<sub>Release assets carry signed build provenance. To confirm a download was built by this repository's CI: <code>gh attestation verify devils-advocate.zip --repo Haseeb35/devils-advocate-skill</code></sub>
+
 ## Usage
 
 Just talk normally:

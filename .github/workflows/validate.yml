@@ -31,7 +31,7 @@ jobs:
 
       - name: claude plugin validate
         run: |
-          claude plugin validate .
+          claude plugin validate . --profile directory --strict
           claude plugin validate .claude-plugin/marketplace.json
 
       - name: Build Claude.ai zip

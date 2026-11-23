@@ -6,6 +6,8 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
 
 jobs:
   release:
@@ -24,6 +26,11 @@ jobs:
 
       - name: Build Claude.ai zip
         run: ./scripts/build-zip.sh
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v3
+        with:
+          subject-path: dist/devils-advocate.zip
 
       - name: Extract release notes
         run: |
