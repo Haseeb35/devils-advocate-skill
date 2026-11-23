@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish GitHub release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check tag matches plugin version
+        run: |
+          VERSION=$(python3 -c "import json;print(json.load(open('.claude-plugin/plugin.json'))['version'])")
+          [ "v$VERSION" = "$GITHUB_REF_NAME" ] || { echo "Tag $GITHUB_REF_NAME does not match plugin.json version $VERSION"; exit 1; }
+
+      - name: Run checks
+        run: python3 scripts/validate.py
+
+      - name: Build Claude.ai zip
+        run: ./scripts/build-zip.sh
+
+      - name: Extract release notes
+        run: |
+          awk -v v="${GITHUB_REF_NAME#v}" '
+            $0 ~ "^## \\[" v "\\]" {found=1; next}
+            found && /^## \[/ {exit}
+            found {print}
+          ' CHANGELOG.md > notes.md
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/devils-advocate.zip --title "$GITHUB_REF_NAME" --notes-file notes.md

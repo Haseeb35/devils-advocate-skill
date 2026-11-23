@@ -1,0 +1,39 @@
+name: Weak or unfair critique
+description: The skill gave a generic, wrong or unfair answer to a real decision
+labels: ["critique-quality"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks — these reports are how the skill gets sharper. Remove anything private before posting.
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Prompt
+      description: What you asked, exactly as you typed it.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: The full response from the skill.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What was wrong with it?
+      description: e.g. generic risks, missed the obvious problem, invented problems, wrong verdict, tone off.
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      options: [Standard, Quick, Deep, Compare, Not sure]
+  - type: input
+    id: surface
+    attributes:
+      label: Where did you run it?
+      placeholder: Claude Code 2.1.x, Claude.ai, ...

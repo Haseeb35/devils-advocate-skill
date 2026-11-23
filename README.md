@@ -3,105 +3,119 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Haseeb35/devils-advocate-skill/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/Haseeb35/devils-advocate-skill/validate.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
+  <a href="https://github.com/Haseeb35/devils-advocate-skill/releases/latest"><img src="https://img.shields.io/github/v/release/Haseeb35/devils-advocate-skill?style=flat-square&color=c2412d" alt="Latest release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2b2522?style=flat-square" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/Claude_Code-skill-c2412d?style=flat-square" alt="Claude Code skill">
-  <img src="https://img.shields.io/badge/Claude.ai-compatible-2b2522?style=flat-square" alt="Claude.ai compatible">
+  <img src="https://img.shields.io/badge/Claude_Code-plugin-2b2522?style=flat-square" alt="Claude Code plugin">
+  <img src="https://img.shields.io/badge/Claude.ai-skill-2b2522?style=flat-square" alt="Claude.ai skill">
+</p>
+
+<p align="center">
+  <a href="#installation">Installation</a> ·
+  <a href="#modes">Modes</a> ·
+  <a href="examples">Examples</a> ·
+  <a href="#testing">Testing</a> ·
+  <a href="CONTRIBUTING.md">Contributing</a>
 </p>
 
 ---
 
 Most plans fail for reasons that were visible in advance. Nobody looked, because the person making the plan was busy being excited about it.
 
-**Devil's Advocate** is a skill for Claude that looks for you. Give it a plan — a migration, a product launch, a career move — and it argues the strongest honest case against it, names the three most likely ways it fails, makes the best case *for* it, and then gives you a straight verdict.
+**Devil's Advocate** is a skill for Claude that looks for you. Give it a plan — a migration, a product launch, a career move — and it argues the strongest honest case against it, names the most likely ways it fails, makes the best case *for* it, and then gives you a straight verdict.
 
 It is deliberately not a pessimist. If your plan is sound, it says so.
 
-## What you get
+<p align="center">
+  <img src="assets/demo.gif" alt="Demo: Devil's Advocate critiquing a REST to GraphQL migration in Claude Code" width="100%">
+</p>
 
-```
-## 😈 Devil's Advocate
-
-The plan        One-line restatement, so you know it understood you
-The case against  The objection that would hurt most if true
-3 ways this could fail
-                Each with likelihood, an early warning sign, and a concrete fix
-The case for    The best honest argument for doing it
-Verdict         ✅ Go · ⚠️ Go, with changes · 🔁 Rethink · ❌ Don't
-Before you decide
-                The one question you should answer first
-```
-
-The whole response fits on one screen.
-
-## Example
-
-> **You:** I'm going to rewrite our backend from Node to Go for performance.
-
-**The plan:** Rewrite the entire backend from Node.js to Go to improve performance.
-
-**The case against**
-There's no evidence yet that Node is the bottleneck — in most web backends, slowness comes from database queries, N+1 calls or network latency, which a language switch won't fix. A full rewrite also freezes feature work for months and re-introduces bugs you already fixed once.
-
-**3 ways this could fail**
-1. **Speed doesn't improve** — the real bottleneck is the database.
-   Likelihood: High · Warning sign: profiling shows most request time in DB/IO · Prevent it: profile production traffic first.
-2. **The rewrite drags on** — edge cases pile up for 6+ months while competitors ship.
-   Likelihood: Medium · Warning sign: first milestone slips by 2+ weeks · Prevent it: rewrite one hot service, not everything.
-3. **Team friction in Go** — unfamiliar idioms lead to new bugs and slower reviews.
-   Likelihood: Medium · Warning sign: PR review times climb · Prevent it: a 2-week pilot on one small service.
-
-**The case for**
-Go handles high concurrency efficiently and can meaningfully cut hosting costs at scale. If profiling confirms CPU-bound hot paths, a targeted Go service is a well-proven move.
-
-**Verdict: ⚠️ Go, with changes**
-Profile first. If a specific service is CPU-bound, rewrite just that one and measure before going further.
-
-**Before you decide:** Have you measured where request time is actually spent?
-
-More examples — a business decision and a personal one — are in [`examples/`](examples).
+<p align="center"><sub>Real output, unedited. Full transcript in <a href="examples/standard-rest-to-graphql.md">examples/standard-rest-to-graphql.md</a>.</sub></p>
 
 ## Installation
 
-### Claude Code
+### Claude Code (recommended)
 
-Install for all your projects:
+```
+/plugin install devils-advocate --marketplace Haseeb35/devils-advocate-skill
+```
+
+<details>
+<summary>Older Claude Code versions, or manual install</summary>
+
+On versions before 2.1.275, add the marketplace first:
+
+```
+/plugin marketplace add Haseeb35/devils-advocate-skill
+/plugin install devils-advocate@devils-advocate
+```
+
+Or install the skill without the plugin system:
 
 ```bash
 git clone https://github.com/Haseeb35/devils-advocate-skill.git
-cp -r devils-advocate-skill/devils-advocate ~/.claude/skills/
+cp -r devils-advocate-skill/skills/devils-advocate ~/.claude/skills/
 ```
 
-Or for a single project, copy the folder into that project instead:
-
-```bash
-cp -r devils-advocate-skill/devils-advocate your-project/.claude/skills/
-```
-
-Start a new Claude Code session and the skill is available.
+</details>
 
 ### Claude.ai
 
-Zip the `devils-advocate` folder and upload it under **Settings → Capabilities → Skills**.
+Download **`devils-advocate.zip`** from the [latest release](https://github.com/Haseeb35/devils-advocate-skill/releases/latest) and upload it under **Settings → Capabilities → Skills**.
 
 ## Usage
 
-Ask for it directly:
+Just talk normally:
 
 ```
 devil's advocate: we're moving the whole team to a 4-day week next month
 ```
 
 ```
-/devils-advocate I'm thinking of raising prices 40% for new customers
+poke holes in this — I'm raising prices 40% for new customers
 ```
 
-Or just talk normally. The skill activates on phrases like *"poke holes in this"*, *"what could go wrong"*, *"am I crazy to…"*, *"should I really…"*, and when you're about to make a big, hard-to-reverse call — a rewrite, a stack choice, a launch, a hire, a resignation.
+The skill activates on phrases like *"poke holes in this"*, *"what could go wrong"*, *"am I crazy to…"*, *"should I really…"*, *"X or Y?"*, and when you're about to make a big, hard-to-reverse call: a rewrite, a stack choice, a launch, a hire, a resignation.
 
-In a codebase, Claude will read the relevant code before arguing about it, so objections are grounded in what's actually there.
+In a codebase, Claude reads the relevant code before arguing about it, so objections are grounded in what's actually there.
+
+## Modes
+
+The mode is picked from how you ask. You can also name it directly.
+
+| Mode | Ask like this | You get |
+|---|---|---|
+| **Standard** | *"devil's advocate: …"* | The case against, 3 failure modes, the case for, a verdict |
+| **Quick** | *"quick gut check: …"* | Biggest risk, best argument for, verdict — about five lines |
+| **Deep** | *"do a deep pre-mortem on …"* | Hidden assumptions, 5 failure modes, a pre-mortem story, kill criteria |
+| **Compare** | *"Postgres or MongoDB for …?"* | Each option critiqued, a side-by-side table, one pick |
+
+Every failure mode comes with a **likelihood**, an **early warning sign** and a **way to prevent it**. Every response ends with one of four verdicts:
+
+| | Verdict | Meaning |
+|---|---|---|
+| ✅ | **Go** | The plan holds up |
+| ⚠️ | **Go, with changes** | Worth doing — fix these specific things first |
+| 🔁 | **Rethink** | The goal is fine, but there's a clearly better route |
+| ❌ | **Don't** | The risks outweigh the upside right now |
+
+### Quick mode, real output
+
+> **quick gut check:** should I buy the annual plan for our design tool instead of monthly? saves 20% and we've used it for 8 months
+
+😈 **Biggest risk:** You pay for 12 months of seats up front, but most annual plans won't let you cut seats until renewal. If the team shrinks or you switch tools, the 20% you saved is gone.
+
+**Best argument for:** You've used it for 8 months, so you clearly depend on it. Unless you'd drop it within roughly 10 months, annual comes out cheaper.
+
+**Verdict: ⚠️ Go, with changes.** Buy annual, but only for the seats you're confident you'll still need in 12 months, and put the renewal date in your calendar.
+
+**Ask yourself:** Is there any real chance you'll change tools or cut headcount in the next 10 months?
+
+More in [`examples/`](examples), including a full [Compare mode run](examples/compare-postgres-vs-mongodb.md).
 
 ## Design principles
 
-The skill is short, and most of it explains *why* rather than dictating rules. A few ideas it is built around:
+The skill is short, and most of it explains *why* rather than dictating rules.
 
 - **Specific beats generic.** "The rewrite might take long" is noise. "Three developers and 40k lines means four to six months of frozen features" is a risk you can act on.
 - **Every risk comes with a fix.** A warning sign and a prevention step turn criticism into a plan.
@@ -109,23 +123,33 @@ The skill is short, and most of it explains *why* rather than dictating rules. A
 - **Challenge the premise.** Sometimes the biggest risk is that the plan solves the wrong problem.
 - **Tone follows stakes.** Technical decisions get blunt answers. Personal ones get the same honesty, delivered with care.
 
+## Testing
+
+The [`evals/`](evals) folder holds six test cases covering every mode, plus two behaviours that matter most: giving a fair **Go** to a sound plan, and asking questions when a plan is too vague to critique.
+
+```bash
+claude plugin eval .         # runs each case with and without the skill (billed model usage)
+python3 scripts/validate.py  # structural checks, also run in CI
+claude plugin validate .     # official plugin validation, also run in CI
+```
+
 ## Project structure
 
 ```
-devils-advocate-skill/
-├── devils-advocate/
-│   └── SKILL.md        # the skill — this is all Claude needs
-├── examples/           # sample outputs across domains
-└── assets/             # banner
+.
+├── .claude-plugin/      plugin and marketplace manifests, icon
+├── skills/
+│   └── devils-advocate/
+│       └── SKILL.md     the skill itself
+├── evals/               test cases for `claude plugin eval`
+├── examples/            real and illustrative outputs
+├── scripts/             validation and release tooling
+└── assets/              banner, demo, social preview
 ```
 
 ## Contributing
 
-Issues and pull requests are welcome — especially:
-
-- Real decisions where the skill gave a weak or unfair critique (include the prompt and output)
-- Better example cases from domains not yet covered
-- Wording improvements to `SKILL.md` that make the output sharper without making it longer
+Issues and pull requests are welcome. The most valuable contribution is a [report of a weak critique](https://github.com/Haseeb35/devils-advocate-skill/issues/new?template=weak-critique.yml) — a real decision where the skill was generic, unfair or wrong. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

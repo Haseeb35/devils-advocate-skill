@@ -2,6 +2,8 @@
 
 > **Prompt:** should I really quit my job as a frontend developer to go freelance? I have 3 months of savings and one client who said they'd probably have work for me.
 
+<sub>Illustrative example written to show the format and tone for this kind of decision.</sub>
+
 ## 😈 Devil's Advocate
 
 **The plan:** Leave a salaried frontend role to freelance full-time, with three months of savings and one likely client.

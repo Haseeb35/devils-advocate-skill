@@ -1,0 +1,13 @@
+{
+  "name": "devils-advocate",
+  "version": "1.0.0",
+  "description": "Stress-test any plan before you commit to it: the case against, the ways it could fail, the case for, and a fair verdict. Includes quick, deep (pre-mortem) and compare modes.",
+  "author": {
+    "name": "Haseeb35",
+    "url": "https://github.com/Haseeb35"
+  },
+  "homepage": "https://github.com/Haseeb35/devils-advocate-skill",
+  "repository": "https://github.com/Haseeb35/devils-advocate-skill",
+  "license": "MIT",
+  "keywords": ["decision-making", "critique", "pre-mortem", "risk", "planning"]
+}

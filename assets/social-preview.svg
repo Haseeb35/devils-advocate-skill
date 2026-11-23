@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16110f"/><stop offset="1" stop-color="#0b0b0c"/></linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.35" r="0.6"><stop offset="0" stop-color="#c2412d" stop-opacity="0.22"/><stop offset="1" stop-color="#c2412d" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#fff" stroke-opacity="0.035"/></pattern>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/><rect width="1280" height="640" fill="url(#grid)"/><rect width="1280" height="640" fill="url(#glow)"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', Helvetica, Arial, sans-serif" text-anchor="middle">
+    <image href="icon.png" x="584" y="96" width="112" height="112"/>
+    <text x="640" y="268" fill="#e2553d" font-size="18" font-weight="600" letter-spacing="3.5">A SKILL FOR CLAUDE</text>
+    <text x="640" y="358" fill="#f4efe9" font-size="96" font-weight="700" letter-spacing="-3">Devil’s Advocate</text>
+    <text x="640" y="418" fill="#a59c94" font-size="30">Stress-test any plan before you commit to it.</text>
+    <g font-size="17" font-weight="600">
+      <rect x="371" y="488" width="128" height="40" rx="20" fill="#1c3020"/><text x="435" y="514" fill="#7fd18b">Go</text>
+      <rect x="511" y="488" width="200" height="40" rx="20" fill="#3a2c14"/><text x="611" y="514" fill="#f0c25e">Go, with changes</text>
+      <rect x="723" y="488" width="120" height="40" rx="20" fill="#1c2638"/><text x="783" y="514" fill="#8cb4f0">Rethink</text>
+      <rect x="855" y="488" width="96" height="40" rx="20" fill="#3b1d18"/><text x="903" y="514" fill="#f07a63">Don’t</text>
+    </g>
+    <text x="640" y="590" fill="#6f6660" font-size="18" font-family="'SF Mono', Menlo, monospace">github.com/Haseeb35/devils-advocate-skill</text>
+  </g>
+</svg>

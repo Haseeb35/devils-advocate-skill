@@ -2,6 +2,8 @@
 
 > **Prompt:** devil's advocate — we sell a one-time $49 desktop app with about 2,000 sales a year. I want to switch to $8/month subscription only, starting next month.
 
+<sub>Illustrative example written to show the format and tone for this kind of decision.</sub>
+
 ## 😈 Devil's Advocate
 
 **The plan:** Replace the $49 one-time license with an $8/month subscription for all new customers, starting next month.

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f1714"/><stop offset="1" stop-color="#0d0c0c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#c2412d" stop-opacity="0.35"/><stop offset="1" stop-color="#c2412d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+  <!-- horns -->
+  <path d="M318 352 C 300 250, 330 180, 392 150 C 372 220, 384 280, 430 322 Z" fill="#e2553d"/>
+  <path d="M706 352 C 724 250, 694 180, 632 150 C 652 220, 640 280, 594 322 Z" fill="#e2553d"/>
+  <!-- speech bubble / card -->
+  <rect x="262" y="320" width="500" height="420" rx="72" fill="#f4efe9"/>
+  <path d="M380 730 L 360 842 L 470 738 Z" fill="#f4efe9"/>
+  <!-- verdict lines -->
+  <rect x="340" y="420" width="250" height="40" rx="20" fill="#2b2522"/>
+  <rect x="340" y="500" width="344" height="40" rx="20" fill="#cfc6bd"/>
+  <rect x="340" y="580" width="300" height="40" rx="20" fill="#cfc6bd"/>
+  <circle cx="660" cy="440" r="30" fill="#e2553d"/>
+</svg>

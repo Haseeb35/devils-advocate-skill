@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: deep-mode-premortem
+expected_outcome: |
+  A Deep-mode answer with hidden assumptions, five failure modes, a pre-mortem narrative,
+  kill criteria and a verdict, written with warmth because it is a personal career decision.

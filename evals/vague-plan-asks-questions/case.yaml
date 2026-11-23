@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: vague-plan-asks-questions
+expected_outcome: |
+  The plan is too vague to critique specifically, so the skill asks one or two short
+  clarifying questions instead of producing a generic critique.

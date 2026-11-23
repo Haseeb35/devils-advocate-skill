@@ -1,0 +1,19 @@
+{
+  "name": "devils-advocate",
+  "owner": {
+    "name": "Haseeb35",
+    "url": "https://github.com/Haseeb35"
+  },
+  "metadata": {
+    "description": "The Devil's Advocate skill for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "devils-advocate",
+      "source": "./",
+      "description": "Stress-test any plan before you commit to it: the case against, the ways it could fail, the case for, and a fair verdict.",
+      "version": "1.0.0",
+      "category": "productivity"
+    }
+  ]
+}

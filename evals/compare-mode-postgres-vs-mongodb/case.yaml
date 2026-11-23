@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: compare-mode-postgres-vs-mongodb
+expected_outcome: |
+  A Compare-mode answer that critiques each option for this specific app and picks one, most
+  likely Postgres given relational data and payments.

@@ -1,0 +1,25 @@
+name: Installation or bug report
+description: The skill fails to install, doesn't trigger, or the plugin misbehaves
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Ran `/plugin install ...`
+        2. Asked "..."
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Claude Code version (`claude --version`) or Claude.ai
+    validations:
+      required: true

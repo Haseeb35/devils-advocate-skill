@@ -1,0 +1,14 @@
+name: Feature request
+description: Suggest a new mode, domain or improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like the skill to do?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: An example prompt where this would help

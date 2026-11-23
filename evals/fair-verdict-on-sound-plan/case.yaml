@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: fair-verdict-on-sound-plan
+expected_outcome: |
+  The plan is sound. The skill should stay honest and give Go (or Go with minor changes)
+  without inventing dramatic problems.

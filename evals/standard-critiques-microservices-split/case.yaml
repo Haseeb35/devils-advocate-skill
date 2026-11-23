@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: standard-critiques-microservices-split
+expected_outcome: |
+  A Standard-mode critique that challenges the premise (investors rarely care about
+  microservices; a 4-person team will drown in operational overhead) and recommends against
+  or heavily scaling back the plan.
